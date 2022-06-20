@@ -12,9 +12,6 @@ function VisitsFilter({ visits }) {
     ).value;
     var filterTS = inputTrainingSaission.split(",");
     var filterUser = inputUser.split(",");
-    if (filterUser[0] == "") {
-      filterUser = "all";
-    }
     //transfor all elements of the filter array to numbers with for loop
     for (let i = 0; i < filterTS.length; i++) {
       filterTS[i] = Number(filterTS[i]);
