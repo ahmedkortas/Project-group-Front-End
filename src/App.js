@@ -3,24 +3,27 @@ import NavComponent from "./components/NavComponent";
 import NavCompLeftSide from "./components/NavCompLeftSide";
 import VisitsFilter from "./components/VisitsFilter";
 import VisitsList from "./components/VisitsList";
+import { useState } from "react";
+import VisitsFilterByUser from "./components/VisitsFilterByUser";
 
 function App() {
-	return (
-		<div className="App">
-			<div className="splitScreen">
-				<div className="leftPanel">
-					<>
-						<img
-							src="https://cdn4.iconfinder.com/data/icons/basic-web-1/800/user-512.png"
-							alt="the user default img"
-							className="userImg"
-						/>
-					</>
-					<NavCompLeftSide />
-				</div>
-				<div className="rightPanel">
-					<NavComponent />
-					{/* to be added
+  //a state that will update when we receive the data from the server
+  return (
+    <div className="App">
+      <div className="splitScreen">
+        <div className="leftPanel">
+          <>
+            <img
+              src="https://cdn4.iconfinder.com/data/icons/basic-web-1/800/user-512.png"
+              alt="the user default img"
+              className="userImg"
+            />
+          </>
+          <NavCompLeftSide />
+        </div>
+        <div className="rightPanel">
+          <NavComponent />
+          {/* to be added
             add the rest of the components here
             -a fillter for the visits : name of the component will be VisitsFilter   
             ////this will receive a function to change the state of the visit filtred with the new data 
@@ -29,12 +32,16 @@ function App() {
             ////this will receive the list of all visits for all users 
             //// on click on the export button it will download an excel file with all the visits
             */}
-					<VisitsFilter />
-					<VisitsList />
-				</div>
-			</div>
-		</div>
-	);
+          <label className="visitsFilter">
+            if you want all the visits related to these users please leave the
+            training sessions field empty and press send
+          </label>
+          <VisitsFilter />
+          <VisitsList />
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default App;

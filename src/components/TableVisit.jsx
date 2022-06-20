@@ -1,42 +1,53 @@
 import React from "react";
 import Table from "react-bootstrap/Table";
+import ReactExcelFile from "./ReactExcelFile.jsx";
+const moment = require("moment");
 
-export const TableVisit = ({ visits }) => {
-	const CustomerRow = (visits, index) => {
-		return (
-			<tr key={index} className="even">
-				<td> {index + 1} </td>
-				<td>{visits["visits"]["id"]}</td>
-				<td>{visits["username"]}</td>
-				<td>{visitsemail}</td>
-				<td>{visitsaddress}</td>
-				<td>{visitszipcode}</td>
-			</tr>
-		);
-	};
+export const TableVisit = ({ startIndex, visits }) => {
+  const visitRow = (startIndex) => {
+    return <tr key={startIndex["id"]} className="even"></tr>;
+  };
 
-	const CustomerTable = customers.map((cust, index) =>
-		CustomerRow(cust, index),
-	);
+  let startIndexHolder = [];
+  console.log(startIndex);
+  if (visits.length > 10) {
+    for (let i = startIndex - 10; i < startIndex; i++) {
+      visits[i]["login"] = moment(visits[i]["login"]).format(
+        "YYYY/MM/DD HH:mm"
+      );
+      visits[i]["logout"] = moment(visits[i]["logout"]).format(
+        "YYYY/MM/DD HH:mm"
+      );
+      startIndexHolder.push(visits[i]);
+    }
+  } else {
+    for (let i = startIndex - 10; i < visits.length; i++) {
+      visits[i]["login"] = moment(visits[i]["login"]).format(
+        "YYYY/MM/DD HH:mm"
+      );
+      visits[i]["logout"] = moment(visits[i]["logout"]).format(
+        "YYYY/MM/DD HH:mm"
+      );
+      startIndexHolder.push(visits[i]);
+    }
+  }
+  console.log(startIndexHolder);
 
-	const tableHeader = (
-		<thead className="bgvi">
-			<tr>
-				<th>#</th>
-				<th>Visit Id</th>
-				<th>username</th>
-				<th>start time</th>
-				<th>training sessions</th>
-				<th>results</th>
-			</tr>
-		</thead>
-	);
+  const tableHeader = (
+    <thead className="bgvi">
+      <tr>
+        <th>#</th>
+        <th>Training Sessions</th>
+        <th>export the file</th>
+      </tr>
+    </thead>
+  );
 
-	return (
-		<Table striped bordered hover>
-			{tableHeader}
-			<tbody>{CustomerTable}</tbody>
-		</Table>
-	);
+  return (
+    <Table striped bordered hover>
+      {tableHeader}
+      {startIndexHolder.map((visit, index) => visitRow(visit))}
+    </Table>
+  );
 };
-export default Table;
+export default TableVisit;
