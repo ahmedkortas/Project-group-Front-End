@@ -28,7 +28,7 @@ function VisitsFilterByUser({ visits }) {
       }
     }
     axios({
-      url: "https://huremden.herokuapp.com/visits/excel",
+      url: "http://127.0.0.1:8000/visits/excel",
       method: "post",
       data: arr,
       responseType: "blob",

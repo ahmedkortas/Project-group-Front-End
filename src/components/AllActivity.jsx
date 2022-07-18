@@ -3,7 +3,7 @@ import axios from "axios";
 function AllActivity(props) {
   let requestToGetExcel = () => {
     axios({
-      url: "https://huremden.herokuapp.com/visits/training",
+      url: "http://127.0.0.1:8000/visits/training",
       method: "post",
       data: { users: "all", TrainingSessions: "all" },
       responseType: "blob",

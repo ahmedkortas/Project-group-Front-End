@@ -11,7 +11,7 @@ function VisitsTable(props) {
 
   useEffect(() => {
     axios
-      .post("https://huremden.herokuapp.com/visits/VisitActvityAndResults", {
+      .post("http://127.0.0.1:8000/visits/VisitActvityAndResults", {
         user_id: props.user,
       })
       .then((res) => {

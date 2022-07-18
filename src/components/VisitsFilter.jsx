@@ -16,13 +16,16 @@ function VisitsFilter({ visits }) {
     for (let i = 0; i < filterTS.length; i++) {
       filterTS[i] = Number(filterTS[i]);
     }
+    if (filterUser[0] === "") {
+      filterUser = "all";
+    }
 
     let obj = {
       TrainingSessions: filterTS,
       users: filterUser,
     };
     axios({
-      url: "https://huremden.herokuapp.com/visits/training",
+      url: "http://127.0.0.1:8000/visits/training",
       method: "post",
       data: obj,
       responseType: "blob",
@@ -41,7 +44,7 @@ function VisitsFilter({ visits }) {
 
   // useEffect(() => {
   //   axios
-  //     .get("https://huremden.herokuapp.com/visits/trainingPrograms")
+  //     .get("http://127.0.0.1:8000/visits/trainingPrograms")
   //     .then((res) => {
   //       console.log(res.data);
   //     })

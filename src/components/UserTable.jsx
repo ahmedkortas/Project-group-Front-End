@@ -9,7 +9,7 @@ function UserTable(props) {
 
   useEffect(() => {
     axios
-      .get("https://huremden.herokuapp.com/visits/users")
+      .get("http://127.0.0.1:8000/visits/users")
       .then((res) => {
         // console.table(res.data);
         setUsers(res.data);
