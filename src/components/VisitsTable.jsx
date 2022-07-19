@@ -11,7 +11,7 @@ function VisitsTable(props) {
 
   useEffect(() => {
     axios
-      .post("http://104.248.19.175:8000/visits/VisitActvityAndResults", {
+      .post("http://104.248.205.157/visits/VisitActvityAndResults", {
         user_id: props.user,
       })
       .then((res) => {

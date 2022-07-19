@@ -25,7 +25,7 @@ function ReactExcelFile(props) {
     }
     console.log(filtredArr);
     axios({
-      url: "http://104.248.19.175:8000/visits/excel",
+      url: "http://104.248.205.157/visits/excel",
       method: "post",
       data: filtredArr,
       responseType: "blob",

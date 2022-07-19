@@ -9,7 +9,7 @@ function UserTable(props) {
 
   useEffect(() => {
     axios
-      .get("http://104.248.19.175:8000/visits/users")
+      .get("http://104.248.205.157/visits/users")
       .then((res) => {
         // console.table(res.data);
         setUsers(res.data);

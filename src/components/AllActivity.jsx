@@ -3,7 +3,7 @@ import axios from "axios";
 function AllActivity(props) {
   let requestToGetExcel = () => {
     axios({
-      url: "http://104.248.19.175:8000/visits/training",
+      url: "http://104.248.205.157/visits/training",
       method: "post",
       data: { users: "all", TrainingSessions: "all" },
       responseType: "blob",

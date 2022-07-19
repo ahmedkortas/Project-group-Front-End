@@ -25,7 +25,7 @@ function VisitsFilter({ visits }) {
       users: filterUser,
     };
     axios({
-      url: "http://104.248.19.175:8000/visits/training",
+      url: "http://104.248.205.157/visits/training",
       method: "post",
       data: obj,
       responseType: "blob",
@@ -44,7 +44,7 @@ function VisitsFilter({ visits }) {
 
   // useEffect(() => {
   //   axios
-  //     .get("http://104.248.19.175:8000/visits/trainingPrograms")
+  //     .get("http://104.248.205.157/visits/trainingPrograms")
   //     .then((res) => {
   //       console.log(res.data);
   //     })
